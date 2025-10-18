@@ -32,4 +32,15 @@ jobs:
           color: '#36a64f' # Cor verde
 
           # Conteúdo formatado da mensagem (Markdown é suportado)
-          message: "✅ Teste de Conexão Bem-Sucedido! Notificação do GitHub Actions."
+          # Título da mensagem
+          title: '🔔 [NOVO COMMIT] em ${{ github.ref_name }}'
+
+          # Conteúdo detalhado, utilizando Markdown e variáveis de forma segura
+          description: |
+            **Repositório:** `${{ github.repository }}`
+            **Autor:** @${{ github.actor }}
+            
+            **Mensagem do Commit:**
+            ${{ github.event.head_commit.message }}
+            
+            [Clique para Ver Detalhes do Commit](${{ github.event.head_commit.url }})
