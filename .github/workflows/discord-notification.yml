@@ -25,7 +25,7 @@ jobs:
         uses: appleboy/discord-action@v1.2.0 
         with:
           # O URL completo do Webhook é passado para a Action através do nosso Secret
-          webhook_id: ${{ secrets.DISCORD_WEBHOOK_URL }} 
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }} 
 
           # Personaliza o autor da mensagem no Discord (opcional)
           username: '🤖 Bot de Commits CI/CD'
