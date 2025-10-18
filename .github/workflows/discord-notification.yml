@@ -22,7 +22,7 @@ jobs:
       # Passo 2: Enviar a mensagem para o Discord
       - name: Notificar o Discord sobre Novo Push
         # Usamos uma Action de terceiros popular e configuramos com nosso Secret
-        uses: appleboy/discord-action@v1.0.6 
+        uses: appleboy/discord-action@v1.2.0 
         with:
           # O URL completo do Webhook é passado para a Action através do nosso Secret
           webhook_id: ${{ secrets.DISCORD_WEBHOOK_URL }} 
