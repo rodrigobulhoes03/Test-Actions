@@ -32,8 +32,13 @@ jobs:
           color: '#36a64f' # Cor verde
 
           # Conteúdo formatado da mensagem (Markdown é suportado)
-          # Título da mensagem
-          title: '🔔 [NOVO COMMIT] em ${{ github.ref_name }}'
-
-          # Conteúdo detalhado, utilizando Markdown e variáveis de forma segura
-          description: "**Repositório:** `${{ github.repository }}`\n**Autor:** @${{ github.actor }}\n\n**Mensagem:**\n${{ github.event.head_commit.message }}\n\n[Ver Detalhes do Commit](${{ github.event.head_commit.url }})"
+          message: |
+            🔔 **[NOVO PUSH]** em `${{ github.ref_name }}`
+            
+            **Repositório:** `${{ github.repository }}`
+            **Autor:** @${{ github.actor }}
+            
+            **Mensagem do Commit:**
+            ${{ github.event.head_commit.message }}
+            
+            [Ver Detalhes do Commit](${{ github.event.head_commit.url }})
