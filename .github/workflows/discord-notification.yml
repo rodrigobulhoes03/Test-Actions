@@ -36,11 +36,4 @@ jobs:
           title: '🔔 [NOVO COMMIT] em ${{ github.ref_name }}'
 
           # Conteúdo detalhado, utilizando Markdown e variáveis de forma segura
-          description: |
-            **Repositório:** `${{ github.repository }}`
-            **Autor:** @${{ github.actor }}
-            
-            **Mensagem do Commit:**
-            ${{ github.event.head_commit.message }}
-            
-            [Clique para Ver Detalhes do Commit](${{ github.event.head_commit.url }})
+          description: "**Repositório:** `${{ github.repository }}`\n**Autor:** @${{ github.actor }}\n\n**Mensagem:**\n${{ github.event.head_commit.message }}\n\n[Ver Detalhes do Commit](${{ github.event.head_commit.url }})"
