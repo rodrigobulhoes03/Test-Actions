@@ -32,4 +32,4 @@ jobs:
           color: '#36a64f' # Cor verde
 
           # Conteúdo formatado da mensagem (Markdown é suportado)
-          message: "🔔 **[NOVO PUSH]** em `${{ github.ref_name }}`\n\n**Repositório:** `${{ github.repository }}`\n**Autor:** @${{ github.event.head_commit.author }}\n\n${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+          message: "🔔 **[NOVO PUSH]** em `${{ github.ref_name }}`\n\n**Repositório:** `${{ github.repository }}`\n**Autor:** @${{ github.event.head_commit.committer }}\n\n${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
