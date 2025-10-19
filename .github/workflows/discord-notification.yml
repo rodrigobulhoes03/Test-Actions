@@ -1,35 +1,22 @@
-name: Notificação de Commit (Discord)
+name: 🔔 Discord Notification
 
-# 1. Quando o Workflow deve ser acionado?
 on:
-  # Aciona em qualquer 'push' (quando um ou mais commits são enviados)
   push:
-    # Monitore apenas a branch principal (ajuste 'main' para o nome da sua branch, se for diferente)
     branches:
-      - main 
+      - main
 
-# 2. O que o Workflow deve fazer?
 jobs:
   notify:
-    # Executa no ambiente Linux padrão
     runs-on: ubuntu-latest
-
     steps:
-      # Passo 1: Fazer checkout do código (Necessário para a maioria dos workflows, boa prática)
-      - name: Checkout do Código
+      - name: 📂 Checkout code
         uses: actions/checkout@v4
 
-      # Passo 2: Enviar a mensagem para o Discord
-      - name: "Notificar o Discord sobre Novo Push"
-        # Usamos uma Action de terceiros popular e configuramos com nosso Secret
-        uses: appleboy/discord-action@v1.2.0 
+      - name: 🔔 Send notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_USERNAME: GitHub
+          DISCORD_AVATAR: https://github.com/fluidicon.png
+        uses: Ilshidur/action-discord@0.4.0
         with:
-          # O URL completo do Webhook é passado para a Action através do nosso Secret
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }} 
-
-          # Personaliza o autor da mensagem no Discord (opcional)
-          username: '🤖 Bot de Commits CI/CD'
-          color: '#36a64f' # Cor verde
-
-          # Conteúdo formatado da mensagem (Markdown é suportado)
-          message: "🔔 **[NOVO PUSH]** em `${{ github.ref_name }}`\n\n**Repositório:** `${{ github.repository }}`\n**Autor:** @${{ github.actor }}\n\n${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+          args: ''
